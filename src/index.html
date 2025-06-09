@@ -1,0 +1,101 @@
+
+<!doctype html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+<body>
+  <main>
+    <section class="py-36 flex items-center bg-gradient-to-r from-green-100 to-green-50 opacity-90 h-screen dark:from-slate-900 dark:to-slate-800">
+      <div class="container mx-auto px-4">
+        <div class="max-w-[400px] m-auto p-6 bg-white dark:bg-slate-950 shadow-md dark:shadow-gray-800 rounded-md">
+
+          <div class="flex justify-center mb-6">
+            <img src="./INSIGNIA-LAV.png" alt="Insignia LAV" class="w-32 h-auto">
+          </div>
+
+          <h5 class="my-6 text-xl font-semibold text-black dark:text-white">
+            Bienvenido
+          </h5>
+
+          <!-- Formulario de login -->
+          <form id="loginForm">
+            <div class="mb-4"> 
+              <label for="username" class="text-black dark:text-white">Usuario:</label>
+              <input id="username" type="text" class="w-full mt-3 py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-green-600 dark:border-gray-800 dark:focus:border-green-600 focus:ring-0" placeholder="Ingresa tu rut" />
+            </div>
+
+            <div class="mb-4">
+              <label for="Contraseña" class="text-black dark:text-white">Contraseña</label>
+              <input id="Contraseña" type="password" class="mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-green-600 dark:border-gray-800 dark:focus:border-green-600 focus:ring-0" placeholder="Ingrese su Contraseña">
+            </div>
+
+            <div class="flex justify-between mb-4">
+              <div class="flex items-center mb-0">
+                <input class="rounded border-gray-200 dark:border-gray-800 text-green-600 focus:border-purple-300 focus:ring-offset-0 focus:ring-purple-200 focus:ring-opacity-50 mr-2" type="checkbox" id="Recordar" />
+                <label class="text-slate-400" for="Recordar">Recordar</label>
+              </div>
+
+              <p class="text-slate-400 mb-0">
+                <a href="auth-re-contraseña.html" class="text-slate-400">¿Olvidó su Contraseña?</a>
+              </p>
+            </div>
+
+            <div class="mb-4">
+              <input type="submit" value="Iniciar Sesión" class="py-2 px-5 inline-block tracking-wide border align-middle duration-500 text-base text-center bg-green-600 hover:bg-green-700 border-green-600 hover:border-green-700 text-white rounded-md w-full" />
+            </div>
+          </form>
+
+          <!-- Mensaje de éxito oculto -->
+          <div id="successMessage" class="hidden mt-4 text-center">
+            <div class="inline-block bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg animate-fade-in-down">
+              ✅ ¡Has entrado con éxito!
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Animación CSS para el mensaje -->
+  <style>
+    @keyframes fade-in-down {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-down {
+      animation: fade-in-down 0.5s ease-out forwards;
+    }
+  </style>
+
+  <!-- Script de login con asignación de rol -->
+<script> 
+    //const form = document.getElementById('loginForm');
+    //const successMessage = document.getElementById('successMessage');
+
+    //form.addEventListener('submit', function(event) {
+      //event.preventDefault();
+
+      //const username = document.getElementById('username').value.trim();
+      //const password = document.getElementById('Contraseña').value.trim();
+
+      // Simulación de validación: admin/admin123 = admin, otro = user
+      //if (username === 'admin' && password === 'admin123') {
+        //localStorage.setItem('role', 'admin');
+      //} else {
+      //  localStorage.setItem('role', 'user');
+      //}
+
+      //successMessage.classList.remove('hidden');
+
+      //setTimeout(() => {
+        //window.location.href = "navbar.html";
+      //}, 1000);
+    //});
+  </script>
+</body>
+</html> 

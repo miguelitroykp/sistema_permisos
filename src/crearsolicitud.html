@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Solicitud</title>
+  <link rel="stylesheet" href="./output.css">
+  <style>
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background-color: #22c55e;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: all 0.4s ease;
+      z-index: 9999;
+    }
+  
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <section class="min-h-screen py-20 bg-gradient-to-r from-green-100 to-green-50 dark:from-slate-900 dark:to-slate-800">
+    <div class="max-w-md mx-auto p-6 bg-white dark:bg-slate-950 shadow-md rounded-lg">
+      <h2 class="text-xl font-semibold text-center mb-6 dark:text-white">Crear Solicitud</h2>
+      
+      <form action="guardar.php" method="POST">
+        
+        <div>
+          <label class="block text-sm dark:text-white">Nombre Completo</label>
+          <input type="text" class="w-full h-10 px-3 rounded border dark:bg-slate-900 dark:text-white border-gray-300 dark:border-gray-800 focus:border-green-600 focus:outline-none" placeholder="Ej: Juan Pérez" required />
+        </div>
+
+        <div>
+          <label class="block text-sm dark:text-white">RUT</label>
+          <input type="text" class="w-full h-10 px-3 rounded border dark:bg-slate-900 dark:text-white border-gray-300 dark:border-gray-800 focus:border-green-600 focus:outline-none" placeholder="Ej: 12345678-9" required />
+        </div>
+
+        <div>
+            <label class="block text-sm dark:text-white">Tipo de Solicitud</label>
+            <select class="w-full h-10 px-3 rounded border dark:bg-slate-900 dark:text-white border-gray-300 dark:border-gray-800 focus:border-green-600 focus:outline-none" required>
+              <option value="">Seleccionar</option>
+              <option value="permiso_medico">Licencia Médica</option>
+              <option value="permiso_personal">Día Administrativo</option>
+              <option value="permiso_laboral">Permiso Laboral</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm dark:text-white">Tipo de Solicitud</label>
+            <select class="w-full h-10 px-3 rounded border dark:bg-slate-900 dark:text-white border-gray-300 dark:border-gray-800 focus:border-green-600 focus:outline-none" required>
+              <option value="">Cargo</option>
+              <option value="permiso_medico">Profesor</option>
+              <option value="permiso_personal">Auxiliar</option>
+              <option value="permiso_laboral">Inspector</option>
+            </select>
+          </div>
+
+        <div>
+          <label class="block text-sm dark:text-white">Fecha Inicio</label>
+          <input type="date" class="w-full h-10 px-3 rounded border dark:bg-slate-900 dark:text-white border-gray-300 dark:border-gray-800 focus:border-green-600 focus:outline-none" required />
+        </div>
+
+        <div>
+          <label class="block text-sm dark:text-white">Fecha Fin</label>
+          <input type="date" class="w-full h-10 px-3 rounded border dark:bg-slate-900 dark:text-white border-gray-300 dark:border-gray-800 focus:border-green-600 focus:outline-none" required />
+        </div>
+
+        
+
+        <div>
+          <label class="block text-sm dark:text-white">Motivo</label>
+          <textarea class="w-full px-3 py-2 rounded border dark:bg-slate-900 dark:text-white border-gray-300 dark:border-gray-800 focus:border-green-600 focus:outline-none" rows="3" placeholder="Escribe el motivo..." required></textarea>
+        </div>
+
+        <div class="flex justify-between">
+          <a href="navbar.html" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
+            Volver
+          </a>
+          <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            Enviar Solicitud
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Toast de éxito -->
+  <div id="toast" class="toast">✅ Solicitud enviada con éxito.</div>
+
+<script>
+  function enviarFormulario(event) {
+    event.preventDefault();
+    const toast = document.getElementById("toast");
+    toast.classList.add("show");
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 3000);
+    document.getElementById("solicitudForm").reset();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const role = localStorage.getItem('role');
+    if (role !== 'admin') {
+      alert('Acceso denegado. Solo administradores pueden entrar aquí.');
+      window.location.href = 'index.html';
+    }
+  });
+</script>
+
+  <script>
+    function enviarFormulario(event) {
+      event.preventDefault();
+
+      // Mostrar el toast
+      const toast = document.getElementById("toast");
+      toast.classList.add("show");
+
+      // Ocultar luego de 3 segundos
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+
+      // Limpiar formulario
+      document.getElementById("solicitudForm").reset();
+    }
+  </script>
+</body>
+</html>

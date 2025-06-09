@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estado de Solicitudes</title>
+  <link rel="stylesheet" href="./output.css">
+</head>
+<body class="bg-gradient-to-r from-green-100 to-green-50 dark:from-slate-900 dark:to-slate-800 text-gray-900 dark:text-white">
+
+  <section class="min-h-screen py-20">
+    <div class="max-w-4xl mx-auto p-6 bg-white dark:bg-slate-950 shadow-md rounded-lg">
+      <h2 class="text-2xl font-semibold text-center mb-6">Estado de Solicitudes</h2>
+
+      <!-- Tabla de solicitudes -->
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+          <thead class="bg-gray-100 dark:bg-slate-800">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Fecha</th>
+              <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Tipo</th>
+              <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Motivo</th>
+              <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Estado</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white dark:bg-slate-900 divide-y divide-gray-200 dark:divide-gray-700">
+            <!-- Fila de ejemplo -->
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap">2025-04-28</td>
+              <td class="px-6 py-4 whitespace-nowrap">Licencia Médica</td>
+              <td class="px-6 py-4 whitespace-nowrap">Consulta médica</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-100">
+                  En revisión
+                </span>
+              </td>
+            </tr>
+            <!-- Puedes agregar más filas según sea necesario -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Botón para volver -->
+      <div class="mt-6 text-center">
+        <a href="navbar.html" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
+          Volver al Menú
+        </a>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const role = localStorage.getItem('role');
+      if (role !== 'user') {
+        alert('Acceso denegado. Solo usuarios pueden entrar aquí.');
+        window.location.href = 'index.html';
+      }
+    });
+  </script>
+</body>
+</html>

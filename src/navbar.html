@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Permisos Lav</title>
+  <link rel="stylesheet" href="./output.css">
+</head>
+<body class="text-gray-900 dark:text-white">
+  <section class="min-h-screen py-20 bg-gradient-to-r from-green-100 to-green-50 dark:from-slate-900 dark:to-slate-800">
+  <nav class="fixed top-0 w-full z-50 bg-gradient-to-r from-green-100 to-green-50 dark:from-slate-900 dark:to-slate-800 border-b border-gray-300 dark:border-gray-700">
+    <div class="container mx-auto flex items-center justify-start px-4 py-3">
+      <!-- Logo / Inicio -->
+    
+      
+      <!-- Botón hamburger (solo en móvil) -->
+      <button class="lg:hidden ml-4 focus:outline-none" onclick="toggleNavbar('main-menu')">
+        <i class="fas fa-bars text-2xl text-gray-900 dark:text-white"></i>
+      </button>
+
+      <!-- Menú de enlaces -->
+      <ul id="main-menu" class="hidden lg:flex lg:items-center lg:space-x-6 ml-6">
+        <li class="flex items-center">
+          <a href="crear.php"
+             class="text-xs uppercase font-bold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-300 transition-colors">
+            Crear Solicitud
+          </a>
+        </li>
+
+        <li class="flex items-center">
+          <a href="crearusuario.html"
+             class="text-xs uppercase font-bold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-300 transition-colors">
+            Crear Usuario
+          </a>
+        </li>
+
+        <li class="flex items-center">
+          <a href="estadosolicitud.html"
+             class="text-xs uppercase font-bold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-300 transition-colors">
+            Estado de Solicitud
+          </a>
+        </li>
+
+        <li>
+          <!-- Botón Cerrar Sesión -->
+          <button onclick="logout()"
+                  class="text-xs uppercase font-bold bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded transition-colors">
+            Cerrar Sesión
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Espacio para el contenido debajo del navbar -->
+  <div class="pt-20 px-4">
+    <!-- Aquí va tu contenido -->
+  </div>
+
+  <script>
+    function toggleNavbar(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+      el.classList.toggle('block');
+    }
+
+    function logout() {
+      localStorage.removeItem('role');
+      window.location.href = 'login.php';
+    }
+  </script>
+</body>
+</html>

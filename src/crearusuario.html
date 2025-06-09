@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" href="src/output.css">
+</head>
+<body class="bg-gradient-to-r from-green-100 to-green-50 dark:from-slate-900 dark:to-slate-800 min-h-screen flex items-center justify-center">
+
+    <div class="w-full max-w-md bg-white dark:bg-slate-950 rounded-lg shadow-md p-8">
+      <h2 class="text-2xl font-bold text-center text-gray-800 dark:text-white mb-6">Crear Usuario</h2>
+      <form id="crearUsuarioForm" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nombre Usuario</label>
+          <input type="text" name="nombre" required class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-900 border border-gray-300 dark:border-gray-800 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm" placeholder="Ej: Juan Pérez" />
+        </div>
+  
+        <div>
+            <label class="block text-sm dark:text-white">RUT</label>
+            <input type="text" class="w-full h-10 px-3 rounded border dark:bg-slate-900 dark:text-white border-gray-300 dark:border-gray-800 focus:border-green-600 focus:outline-none" placeholder="Ej: 12345678-9" required />
+        </div>
+        <div>
+            <label class="block text-sm dark:text-white">Seleccione role</label>
+            <select class="w-full h-10 px-3 rounded border dark:bg-slate-900 dark:text-white border-gray-300 dark:border-gray-800 focus:border-green-600 focus:outline-none" required>
+              <option value="">Cargo</option>
+              <option value="permiso_medico">Profesor</option>
+              <option value="permiso_personal">Auxiliar</option>
+              <option value="permiso_laboral">Inspector</option>
+            </select>
+          </div>
+
+  
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Contraseña</label>
+          <input type="password" name="password" required class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-900 border border-gray-300 dark:border-gray-800 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm" placeholder="********" />
+        </div>
+  
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Confirmar Contraseña</label>
+          <input type="password" name="confirm_password" required class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-900 border border-gray-300 dark:border-gray-800 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm" placeholder="********" />
+        </div>
+  
+        <div class="flex items-center justify-between">
+            <a href="crar_usuario.php" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
+                Volver
+              </a>
+          <button type="submit" class="inline-flex items-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+            Crear Cuenta
+          </button>
+        </div>
+      </form>
+    </div>
+    <script>
+      document.getElementById('crearUsuarioForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Aquí puedes agregar la lógica para enviar el formulario al servidor
+        alert('✅ Usuario creado con éxito.');
+        this.reset();
+      });
+    </script>
+  </body>
+</html>
