@@ -36,8 +36,34 @@ $stmt_permisos = $conexion->prepare($sql_permisos);
 $stmt_permisos->bind_param("i", $id_usuario);
 $stmt_permisos->execute();
 $resultado_permisos = $stmt_permisos->get_result();
-?>
 
+// Calcular resumen de permisos
+$resumen = [
+    'total_dias' => 0,
+    'aceptados' => 0,
+    'rechazados' => 0,
+    'pendientes' => 0
+];
+
+if ($resultado_permisos && $resultado_permisos->num_rows > 0) {
+    $resultado_permisos->data_seek(0);
+    while ($permiso = $resultado_permisos->fetch_assoc()) {
+        $resumen['total_dias'] += (int)$permiso['numero_dias'];
+        switch (strtolower(trim($permiso['estado']))) {
+            case 'aceptado':
+                $resumen['aceptados']++;
+                break;
+            case 'rechazado':
+                $resumen['rechazados']++;
+                break;
+            default:
+                $resumen['pendientes']++;
+                break;
+        }
+    }
+    $resultado_permisos->data_seek(0); // Reiniciar puntero para mostrar en tabla
+}
+?>
 
 <!DOCTYPE html>
 <html lang="es" class="dark">
