@@ -86,7 +86,17 @@ if ($resultado_permisos && $resultado_permisos->num_rows > 0) {
             </a>
         </div>
 
-
+        <!-- Perfil -->
+        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 mb-8">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <img src="<?= htmlspecialchars($fotoPath) ?>" alt="Foto del usuario" class="w-32 h-32 rounded-full border-4 border-green-500 object-cover shadow">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 dark:text-white"><?= htmlspecialchars($usuario["nombre_usuario"]) ?></h2>Add commentMore actions
+                    <p class="text-gray-600 dark:text-gray-300">Rol: <?= htmlspecialchars($usuario["rol"]) ?></p>
+                    <p class="text-sm text-gray-400">ID: <?= $usuario["id"] ?> | RUT: <?= htmlspecialchars($usuario["rut"]) ?></p>
+                </div>
+            </div>
+        </div>
         <!-- Resumen -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 p-4 rounded-lg shadow text-center">
